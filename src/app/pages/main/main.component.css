@@ -1,0 +1,10 @@
+.main_component {
+    display: grid;
+    place-items: center;
+    margin: 20px;
+}
+
+.meth{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}

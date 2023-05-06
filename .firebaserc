@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "hegedusart-2d95a": {
+      "hosting": {
+        "hegedusart": [
+          "hegedusart-2d95a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "hegedusart-2d95a"
+  }
+}

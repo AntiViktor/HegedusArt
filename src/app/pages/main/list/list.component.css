@@ -1,0 +1,7 @@
+mat-card-actions button{
+    width: 100%;
+}
+
+mat-card{
+    margin: 20px 50px; 
+}

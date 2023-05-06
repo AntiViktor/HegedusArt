@@ -1,0 +1,29 @@
+a {
+    text-decoration: none;
+    color: white
+}
+
+a:hover, a:active {
+    color: lightgrey;
+    font-size: 22px;
+    transition: 500ms;
+    transition-timing-function: ease-out;
+}
+
+.navigation-items{
+    display: grid;
+    place-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-title{
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 30px;
+    color: #aee3fc
+  }
+
+mat-sidenav{
+    width: 250px;
+}
