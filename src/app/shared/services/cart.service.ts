@@ -11,9 +11,6 @@ export class CartService {
 
   addToCart(product: Product) {
     if(this.getItems() === null || this.getItems() === undefined){
-      // let cartList = [];
-      // cartList.push(product);
-      // localStorage.setItem('cart', JSON.stringify(cartList));
       localStorage.setItem('cart', JSON.stringify([product]));
     }
     else{

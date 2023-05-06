@@ -14,7 +14,7 @@
             <img mat-card-image [src]="getImageDownloadLink(product)">
             <mat-card-content>
                 <p *ngIf="product.price">
-                    Ár: {{ product.price | currency:'HUF':'HUF ' }}
+                    Ár: {{ product.price | currency:' HUF':'HUF ' : '1.0-0' }}
                 </p>
             </mat-card-content>
             <mat-card-actions>
