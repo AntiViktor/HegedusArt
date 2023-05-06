@@ -1,0 +1,2 @@
+# HegedusArt
+Webkeret rendszerek projkt
