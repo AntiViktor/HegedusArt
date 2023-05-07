@@ -41,7 +41,7 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     FlexLayoutModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
