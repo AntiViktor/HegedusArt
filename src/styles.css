@@ -125,6 +125,65 @@ label {
   background-color: rgba(0,0,0, 0.3);
 }
 
+/* styles.css */
+
+/* Apply a reset to remove default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set a global font family */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Header styling */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Navigation styling */
+nav {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+/* Main content area styling */
+main {
+  padding: 2rem;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav a {
+    margin: 1rem 0;
+  }
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.

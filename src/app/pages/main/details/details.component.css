@@ -1,44 +1,78 @@
-.main_component {
-  margin: 20px;
-}
-.main_component {
+/* details.component.css */
+
+.main-component {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+  min-height: 100vh; /* Use min-height for responsiveness */
 }
 
-.mat-card {
-  max-width: 500px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+mat-card {
+  width: 80%;
+  max-width: 1000px; /* Adjust the maximum width as needed */
 }
 
-.mat-card-header {
-  background-color: #673ab7;
-  color: white;
-  padding: 1.5rem;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+.details-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.mat-card-title {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+.image-section {
+  width: 100%; /* Take up full width on smaller screens */
 }
 
-.mat-card-content {
-  padding: 2rem;
+/* Add some additional styling for a modern look */
+.product-name {
+  font-size: 30px; /* Increase heading font size */
+  color: #95382e; /* Set heading color to a blue shade */
+
 }
 
-.mat-card-content p,
-.mat-card-content h3,
-.mat-card-content h4 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+.product-details {
+  width: 100%; /* Make it fill the entire width */
+  max-width: 500px; /* Set a maximum width for larger screens */
+  text-align: left;
+  padding: 20px;
+  font-size: 18px; /* Adjust the font size as needed */
+  font-family: 'Roboto', sans-serif; /* Use a modern font family */
+  line-height: 1.5; /* Improve readability with increased line height */
+  color: black; /* Set the text color to a dark shade for better contrast */
+  margin-top: 10%;
 }
 
-button {
-  font-size: 1.1rem;
+/* Add some additional styling for a modern look */
+.product-details h3 {
+  font-size: 30px; /* Increase heading font size */
+  color: #95382e; /* Set heading color to a blue shade */
+}
+
+.product-details h4 {
+  font-size: 25px; /* Increase subheading font size */
+  color: #555; /* Set subheading color to a darker gray */
+}
+
+/* Apply styles to <p> tags within .product-details */
+.product-details p {
+  font-size: 20px; /* Adjust paragraph font size */
+  color: black; /* Set paragraph text color to a slightly lighter gray */
+}
+
+/* Adjustments for smaller screens */
+@media screen and (min-width: 600px) {
+  .image-section,
+  .product-details {
+    width: 50%;
+    
+  }
+}
+.image-container {
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%; /* Set a maximum width to ensure responsiveness */
+  height: auto;
+  display: block;
+  margin: auto;
 }

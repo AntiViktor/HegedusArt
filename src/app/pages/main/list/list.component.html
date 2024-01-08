@@ -2,10 +2,9 @@
     <mat-spinner color="accent"></mat-spinner>
 </span>
 
-<h2>Festmények:</h2>
 <div fxLayout="row wrap" fxLayoutGap="16px grid">
     <div *ngFor="let product of products; let i = index;" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="50%">
-        <mat-card [ngStyle]="{'background-color' : i % 2 === 0 ? '#aee3fc' : '#579af7'}" class="mat-elevation-z4">
+        <mat-card  class="mat-elevation-z4">
             <mat-card-header>
                 <mat-card-title>
                     {{ product.name }}
@@ -14,11 +13,11 @@
             <img mat-card-image [src]="getImageDownloadLink(product)">
             <mat-card-content>
                 <p *ngIf="product.price">
-                    Ár: {{ product.price | currency:' HUF':'HUF ' : '1.0-0' }}
+                    Ár: {{ product.price | currency:"HUF":"symbol":'1.0-0' }}
                 </p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary" type="button" [routerLink]="['details/', product.id]">
+                <button mat-raised-button  type="button" [routerLink]="['details/', product.id]">
                     Részletek
                 </button>
             </mat-card-actions>

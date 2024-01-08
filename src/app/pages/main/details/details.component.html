@@ -1,15 +1,29 @@
-<div class="main_component">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>A festmény részletei</mat-card-title>
-    </mat-card-header>
+<!-- details.component.html -->
 
-    <mat-card-content *ngIf="product">
-      <h3>Cím: {{ product.name }}</h3>
-      <h4>Ár: {{ product.price | currency:'HUF':'HUF ' }}</h4>
-      <p>Méret: {{ product.size }} cm</p>
-      <button mat-raised-button color="primary" type="button" (click)="addToCart(product)">Tedd a kosaramba!</button>
-      <app-comment-section></app-comment-section>
+<div class="main-component">
+  <mat-card>
+    <mat-card-content *ngIf="product" class="details-container">
+      <div *ngIf="images && images.length > 0; else noImages" class="image-section">
+        <div *ngFor="let image of images" class="image-container">
+          <img [src]="image.image_url" alt="{{ product.name }} Image">
+        </div>
+      </div>
+
+      <div class="product-details">     
+        <mat-card-content>
+          <h3 class="product-name">{{ product.name }}</h3>
+          <h4>Ár: {{ product.price | currency:'HUF':'HUF ' }}</h4>
+          <h4>Méret: {{ product.size }} cm</h4>
+
+          <p>Rendelés telefonon vagy emailen az alábbi elérhetőségeken</p>
+          <p>Telefon: +36123456789</p>
+          <p>Email: hegedus@gmail.com</p>
+        </mat-card-content>
+      </div>
     </mat-card-content>
+
+    <ng-template #noImages>
+      <p>No images available for this product.</p>
+    </ng-template>
   </mat-card>
 </div>

@@ -5,7 +5,6 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
-import { CommentSectionComponent } from './details/comment-section/comment-section.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateFormatPipe } from 'src/app/shared/pipes/date-format.pipe';
 import { MatCardModule } from '@angular/material/card';
@@ -20,7 +19,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MainComponent,
     ListComponent,
     DetailsComponent,
-    CommentSectionComponent,
     DateFormatPipe
   ],
   imports: [

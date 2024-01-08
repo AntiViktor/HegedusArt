@@ -1,11 +1,12 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ImageService } from '../../../shared/services/image.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 import { Product } from '../../../shared/models/Product';
-import { CartService } from '../../../shared/services/cart.service';
+import { Image } from '../../../shared/models/Image';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { Subscription } from 'rxjs';
+import { ImageService } from '../../../shared/services/image.service';
 
 @Component({
   selector: 'app-details',
@@ -13,51 +14,47 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit, OnDestroy {
-
   user?: firebase.default.User;
-  products?: Array<Product>;
-
   product?: Product;
-
+  images?: Image[];
   productLoadingSubscription?: Subscription;
+  imagesLoadingSubscription?: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private cartService: CartService,
-    private imageService: ImageService,
-    private router: Router
-    ) { }
+    private imageService: ImageService
+  ) {}
 
   ngOnInit(): void {
     // First get the product id from the current route.
-  const routeParams = this.route.snapshot.paramMap;
-  const productIdFromRoute = routeParams.get('productId');
+    const routeParams = this.route.snapshot.paramMap;
+    const productIdFromRoute = routeParams.get('productId');
 
-  this.user = JSON.parse(localStorage.getItem('user') as string);
+    this.user = JSON.parse(localStorage.getItem('user') as string);
 
-  this.productLoadingSubscription = this.productService.loadProducts().subscribe((data: Array<Product>) => {
-    this.products = data;
-    // Find the product that correspond with the id provided in route.
-    this.product = this.products?.find(product => product.id === productIdFromRoute);
-  })
+    // Load product details
+    this.productLoadingSubscription = this.productService
+      .loadProducts()
+      .subscribe((data: Array<Product>) => {
+        this.product = data.find((product) => product.id === productIdFromRoute);
+      });
 
-  
+    // Load associated images
+    this.imagesLoadingSubscription = this.route.paramMap
+      .pipe(
+        switchMap((params) => {
+          const productId = params.get('productId') || '';
+          return this.imageService.getImagesByProductId(productId);
+        })
+      )
+      .subscribe((images: Image[]) => {
+        this.images = images;
+      });
   }
 
   ngOnDestroy(): void {
-      this.productLoadingSubscription?.unsubscribe();
+    this.productLoadingSubscription?.unsubscribe();
+    this.imagesLoadingSubscription?.unsubscribe();
   }
-
-  addToCart(product: Product) {
-    if(this.user){
-      this.cartService.addToCart(product);
-      window.alert('A termék hozzá lett adva a kosaradhoz!');
-    }
-    else{
-      window.alert('Előbb be kell jelentkezned!');
-      this.router.navigateByUrl('/login');
-    }
-  }
-
 }

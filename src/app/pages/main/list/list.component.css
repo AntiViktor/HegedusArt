@@ -5,3 +5,15 @@ mat-card-actions button{
 mat-card{
     margin: 20px 50px; 
 }
+button{
+    color: #95382e;
+    background-color: beige;
+}
+
+mat-card{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+mat-card-title{
+    font-weight: bold;
+}
