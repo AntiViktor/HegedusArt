@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MainRoutingModule } from './main-routing.module';
@@ -13,13 +13,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ForintCurrencyPipe } from 'src/app/shared/pipes/forint-currency.pipe';
+
 
 @NgModule({
   declarations: [
     MainComponent,
     ListComponent,
     DetailsComponent,
-    DateFormatPipe
+    DateFormatPipe,
+    ForintCurrencyPipe
   ],
   imports: [
     CommonModule,
@@ -32,6 +35,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatInputModule,
     MatProgressSpinnerModule,
     FlexLayoutModule
-  ]
+  ],
 })
 export class MainModule { }

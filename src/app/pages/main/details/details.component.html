@@ -12,7 +12,7 @@
       <div class="product-details">     
         <mat-card-content>
           <h3 class="product-name">{{ product.name }}</h3>
-          <h4>Ár: {{ product.price | currency:'HUF':'HUF ' }}</h4>
+          <h4>Ár: {{ product.price |  forintCurrency }}</h4>
           <h4>Méret: {{ product.size }} cm</h4>
 
           <p>Rendelés telefonon vagy emailen az alábbi elérhetőségeken</p>
